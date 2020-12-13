@@ -1,0 +1,40 @@
+{% extends "photo.layout.html" %}
+{% set display_header = False %}
+{% block title %}Work with me{% endblock %}
+
+{% block content %}
+
+    <style>
+        #wechat {
+            width: 300px;
+            margin: 20px auto;
+        }
+
+        #wechat > img {
+            width: 100%;
+        }
+
+        #wechat > h2 {
+            text-align: center;
+        }
+
+        label {
+            margin-top: 20px;
+        }
+    </style>
+
+    <div class="container">
+        <div style="height: 120px"></div>
+        <div id="wechat" style="margin: 30px auto">
+            <img src="{{ url_for('static', filename = 'img/wechat.JPG') }}">
+            <h2>For more info. <i class="fa fa-arrow-down"></i></h2>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            if ($(window).width() > 600)
+                $('#wechat').css({'height': $(window).height() - $('.header').height()});
+        });
+    </script>
+{% endblock %}

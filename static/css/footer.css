@@ -1,0 +1,41 @@
+.foot {
+    text-align: center;
+    align-items: center;
+    background-color: #aaa;
+    height: 300px;
+    width: 100%;
+    display: block;
+    color: #636b6f;
+}
+
+#mail {
+    height: 220px;
+    background-color: #111
+}
+
+#icons {
+    height: 80px;
+}
+
+@media (max-width: 550px) {
+    .foot {
+        height: 200px;
+        width: 100%;
+    }
+
+    #icons {
+        height: 50px;
+    }
+
+    #mail {
+        height: 150px;
+    }
+
+    #icons i {
+        margin-top: 20px !important;
+    }
+}
+
+#icons i {
+    margin-top: 30px;
+}

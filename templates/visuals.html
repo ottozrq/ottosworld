@@ -1,0 +1,103 @@
+{% extends "photo.layout.html" %}
+{% set display_header = False %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <link href="{{ url_for('static', filename = 'css/visual.css') }}" rel="stylesheet" type="text/css">
+    <style>
+
+    </style>
+
+    <div class="container">
+        <div class="row nav-bar">
+            <div class="nav-item col col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                <p href="fashion">Fashion</p>
+            </div>
+            <div class="nav-item col col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                <p href="wedding">Wedding</p>
+            </div>
+            <div class="nav-item col col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                <p class="selected" href="video">Videos</p>
+            </div>
+        </div>
+
+        <div class="content">
+
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            //set css
+            $('.container').css({'margin-top': $('#nav').height() + 20})
+
+            //animations/mouse actions
+            $('.nav-item > p').mouseover(navItemMOver)
+            $('.nav-item > p').mouseout(navItemMOut)
+            $('.nav-item > p').click(nacItemClick)
+
+            //ajax
+            $.ajax({
+                url: "video",
+                context: document.body,
+                success: function (data) {
+                    $('.content').html(data)
+                }
+            })
+        })
+
+        //nacItem actions
+        function navItemMOver() {
+            $(this).addClass('active')
+        }
+
+        function navItemMOut() {
+            $(this).removeClass('active')
+        }
+
+        function nacItemClick() {
+            if ($(this).html() == "Wedding") {
+                $.ajax({
+                    url: "wedding",
+                    context: document.body,
+                    success: function (data) {
+                        $('.content').html(data)
+                    }
+                })
+            } else if ($(this).html() == "Fashion") {
+                $.ajax({
+                    url: "fashion",
+                    context: document.body,
+                    success: function (data) {
+                        $('.content').html(data)
+                        adjustWindow()
+                    }
+                })
+            } else {
+                $.ajax({
+                    url: "video",
+                    context: document.body,
+                    success: function (data) {
+                        $('.content').html(data)
+                        adjustVideo()
+                    }
+                })
+            }
+            $('.nav-item > p').removeClass('selected')
+            $(this).addClass('selected')
+        }
+
+        function adjustVideo() {
+            if ($(window).width() > 550)
+                $('video').attr('width', $(window).width() / 2);
+            else
+                $('video').attr('width', $(window).width() - 50);
+            $('.content').removeAttr('style');
+        }
+
+        function adjustWindow() {
+            $('.content').css({'height': $(window).height()})
+        }
+    </script>
+
+{% endblock %}

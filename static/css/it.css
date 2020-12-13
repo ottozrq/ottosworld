@@ -1,0 +1,206 @@
+body {
+  font-size: 1rem;
+  font-family: 'Raleway';
+}
+
+.feather {
+  width: 16px;
+  height: 16px;
+  vertical-align: text-bottom;
+}
+
+/*
+ * Header
+ */
+.site-header {
+  border: 0!important;
+}
+
+.header {
+  background: #222;
+  color: #636b6f;
+}
+
+.header a {
+  color: white!important;
+}
+
+.header a:hover {
+  color: #636b6f;!important;
+}
+
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  background: #222;
+  color: #fff;
+  border: 0!important;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100; /* Behind the navbar */
+  padding: 48px 0 0; /* Height of navbar */
+}
+
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: calc(100vh - 48px);
+  padding-top: .5rem;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+@supports ((position: -webkit-sticky) or (position: sticky)) {
+  .sidebar-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+  }
+}
+
+.sidebar .nav-link {
+  font-weight: 500;
+  color: #fff;
+}
+
+.sidebar .nav-link .feather {
+  margin-right: 4px;
+  color: #ddd;
+}
+
+.sidebar .nav-link.active {
+  color: #ddd;
+}
+
+.sidebar .nav-link:hover .feather,
+.sidebar .nav-link.active .feather {
+  color: inherit;
+}
+
+.sidebar-heading {
+  font-size: .75rem;
+  text-transform: uppercase;
+}
+
+ul {
+  padding: 0;
+}
+
+ul.dashed {
+  list-style-type: none;
+}
+
+ul.dashed > li {
+  text-indent: -5px;
+  text-align: left!important;
+}
+
+ul.dashed > li:before{
+  content: " - ";
+  text-indent: -5px;
+}
+
+/*
+ * Content
+ */
+
+[role="main"] {
+  padding-top: 133px; /* Space for fixed navbar */
+}
+
+@media (min-width: 768px) {
+  [role="main"] {
+    padding-top: 48px; /* Space for fixed navbar */
+  }
+}
+
+/*
+ * Navbar
+ */
+
+.navbar {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  font-size: 1rem;
+  background-color: rgba(0, 0, 0, .25);
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+}
+
+.table {
+  table-layout:fixed;
+  font-size: 18px;
+  text-overflow: ellipsis;
+
+  /* Required for text-overflow to do anything */
+  white-space: nowrap;
+  overflow: hidden !important;
+}
+
+.side-content {
+  width: 100%;
+  margin: 10px auto;
+}
+
+.side-content > div {
+  width: 70%;
+  display: block;
+  margin: 30px auto;
+  text-align: center;
+}
+
+.side-content img {
+  width: 70%;
+  display: block;
+  margin: 20px auto;
+  border: white solid 5px;
+}
+
+/*
+ * Global
+ */
+a {
+  color: black;
+}
+
+a:hover {
+  color: grey;
+}
+
+/*
+ * it-content
+ */
+.it-container {
+  color: black;
+  font-size: 20px;
+  font-family: 'Avenir Next';
+  margin-bottom: 30px;
+}
+
+.it-header {
+  border-bottom: 1px solid #222;
+}
+
+.it-content {
+  margin: 20px auto;
+}
+
+.it-subheader {
+  color: #666;
+}
+
+.border-left {
+  border-left: 1px solid #222;
+}
+
+.it-img-text {
+  text-align: center;
+}
+
+.it-img-text > img {
+  width: 80%;
+  display: block;
+  margin: 10px auto;
+}

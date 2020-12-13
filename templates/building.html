@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>building</title>
+</head>
+<body>
+    <style>
+        .content {
+            width: 100%;
+            text-align: center;
+        }
+
+        .title {
+            padding-top: 300px;
+            font-size: 84px;
+        }
+
+        @media (max-width: 650px) {
+            .title {
+                padding-top: 150px !important;
+                font-size: 56px;
+            }
+        }
+    </style>
+
+    <div class="content">
+        <div class="title m-b-md">
+            Page in building...
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('.content').css({'height': $(window).height() - $('.foot').height()})
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome{% endblock %} | OTTO's World</title>
+    <link rel="icon" href="{{ url_for('static', filename = 'img/logo.png') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="{{ url_for('static', filename = 'css/it.css') }}" rel="stylesheet" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename = 'js/jquery.js') }}"></script>
+    <link href="{{ url_for('static', filename = 'fonts/Raleway.css') }}" rel="stylesheet" type="text/css">
+</head>
+<body>
+<nav class="site-header sticky-top">
+    <div class="header d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3">
+        <h5 class="my-0 mr-md-auto font-weight-normal">I.T. | OTTO's World</h5>
+        <nav class="my-2 my-md-0 mr-md-3">
+            <a class="p-2 text-dark" href="#">Home</a>
+        </nav>
+        <a class="btn btn-outline-primary" href="">Contact</a>
+
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-sm-3 d-none d-md-block sidebar">
+            <div class="sidebar-sticky">
+                <div style="width: 100%; height: 10px;"></div>
+                <div class="side-content">
+                    <img src="{{ url_for('static', filename='img/it/photo.jpg') }}">
+                </div>
+                <div class="side-content">
+                    <div>
+                        <h2>Otto ZHANG</h2>
+                    </div>
+                    <div>
+                        <h4>Software Engineer</h4>
+                        <h5>04/1995</h5>
+                    </div>
+                </div>
+                <div class="side-content">
+                    <div>
+                        <h4>Personality</h4>
+                        <ul class="dashed">
+                            <li>Motivated and active</li>
+                            <li>Bicultural, 4 years in France</li>
+                            <li>solid base of data structure and algorithm</li>
+                            <li>Passion of AI, IoT and Blockchain</li>
+                            <li>Good capacity of group work and leadership</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="side-content">
+                    <div>
+                        <h4>Language</h4>
+                        <div>English(C1)</div>
+                        <div>French(B1)</div>
+                        <div>Chinese</div>
+                    </div>
+                </div>
+                <div class="side-content">
+                    <div>
+                        <h4>Hobbies</h4>
+                        <div>Basketball</div>
+                        <div>Drum</div>
+                        <div>Photography</div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <main class="col-md-8 ml-sm-auto col-lg-9 px-4">
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+</div>
+</body>
+</html>

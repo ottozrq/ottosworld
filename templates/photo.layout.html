@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+
+    <title>{% block title %}Welcome{% endblock %} | OTTO's World</title>
+    <link rel="icon" href="{{ url_for('static', filename = 'img/logo.png') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Color animation -->
+    {% set display_header = display_header|default(False) %}
+    <script src="//cdn.jsdelivr.net/jquery.color-animation/1/mainfile"></script>
+    <!-- Fonts -->
+    <link href="{{ url_for('static', filename = 'fonts/Raleway.css') }}" rel="stylesheet" type="text/css">
+    <!-- Styles -->
+    <style>
+        a:hover {
+            color: #999;
+            text-decoration: none;
+        }
+    </style>
+    {% assets "css" %}
+        <link rel="stylesheet" href="{{ ASSET_URL }}"/>
+    {% endassets %}
+    {% if not display_header %}
+        <style>
+            body {
+                background-color: #dddddd;
+            }
+        </style>
+    {% endif %}
+    {% assets "js" %}
+        <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+    {% endassets %}
+</head>
+<body>
+{% if display_header %}
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/photo.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/general.css') }}">
+{% else %}
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/suburl.css') }}">
+{% endif %}
+
+<div class="flex-center position-ref full-height">
+    <div class="main">
+        {% block content %}{% endblock %}
+        {% include "photo.layout.footer.html" %}
+    </div>
+
+
+    {% if display_header %}
+        <div class="top-left">
+            <a href="/"><img id="logo" src="{{ url_for('static', filename = 'img/logo.png') }}"></a>
+        </div>
+        <div class="top-right links navbar-collapse">
+            <a href="/photo">Home</a>
+            <a href="/visuals">Visuals</a>
+            <a href="/contact" class="hiden" id="btn-w">Work with me</a>
+        </div>
+
+        <div class="content">
+            <div class="title m-b-md">
+                OTTO's World
+            </div>
+
+            <div class="links">
+                <a href="/photo">PHOTO</a>
+                <a href="/it">I.T.</a>
+                <a href="/about">ABOUT</a>
+            </div>
+        </div>
+    {% endif %}
+
+    {% include "photo.layout.header.html" %}
+</div>
+
+{% if display_header %}
+    <script>
+        $(document).ready(setTimeout(function () {
+            $('body').animate({backgroundColor: '#ddd'}).queue(false);
+            $('.content').fadeOut(400).queue(false);
+            setTimeout(function () {
+                $('.main').fadeIn().queue(true);
+            }, 500);
+        }, 1000));
+        $(window).scroll(function () {
+            // set distance user needs to scroll before we start fadeIn
+            if ($(this).scrollTop() > 700) {
+                $('#nav').fadeIn();
+            } else {
+                $('#nav').fadeOut();
+            }
+        });
+        function fallback(video) {
+            var img = video.querySelector('img');
+            if (img)
+                video.parentNode.replaceChild(img, video);
+        }
+    </script>
+{% endif %}
+
+</body>
+</html>

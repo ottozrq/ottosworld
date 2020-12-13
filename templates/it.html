@@ -1,0 +1,148 @@
+{% extends "it.layout.html" %}
+{% block title %}I.T.{% endblock %}
+{% block content %}
+    <div class="it-container">
+        <div class="it-header">
+            <h1>PROJECTS</h1>
+        </div>
+        <div class="it-content">
+            <div class="it-subheader">MYCOTYROOM, OUT SCHOOL PROJECT, 2019/08 - 2019/10</div>
+            <div><b>Client:</b> COTY INC.</div>
+            <div><b>Content:</b> mobile application showing the products of COTY</div>
+            <div><b>My mission:</b> working on the frontend, showing products, config search functionality and the
+                filter, making 3D model for products...
+            </div>
+        </div>
+        <div class="it-content">
+            <div class="it-subheader">TRAVEL ASSISTANT, OUT SCHOOL PROJECT, 2019/01 - 2019/07</div>
+            <div><b>Client:</b> Chinese travellers in Paris</div>
+            <div><b>Content:</b> mobile application, Travel Assistant, being able to recognise landmarks, display
+                information, plan route...
+            </div>
+            <div><b>My mission:</b> Design, modelling the project, develop the API, develop recognition feature using
+                google cloud, path planning algorithms, provide data for Logstash. Going to implement CNN for landmark
+                recognition
+            </div>
+        </div>
+    </div>
+    <div class="it-container">
+        <div class="it-header">
+            <h1>EXPERIENCE</h1>
+        </div>
+        <div class="it-content">
+            <h3>UBISOFT 03/2019-08/2019</h3>
+            <div class="it-subheader">Web development assistant</div>
+            <div class="row">
+                <div class="col-md-9">Develop the project management tool Rocket. This project extract data from
+                    database and Generate
+                    charts, which helps managers to analyse the project and make the decision. I am in charge of the
+                    extract
+                    of data, design and develop the charts according to the US.
+                </div>
+                <div class="col-md-3 border-left">
+                    <div>JavaScript</div>
+                    <div>ETL(Kettle)</div>
+                    <div>Jenkins</div>
+                    <div>MSSQL</div>
+                </div>
+            </div>
+        </div>
+        <div class="it-content">
+            <h3>SERAPHIN STUDIO 10/2017-01/2018</h3>
+            <div class="it-subheader">Full Stack developper</div>
+            <div class="row">
+                <div class="col-md-9">Design and develop projects, including develop company's main page, design and
+                    develop company inner tool, develop SmartClause (Contract signing project), design and develop
+                    CaseIP (Case searching project)...
+                </div>
+                <div class="col-md-3 border-left">
+                    <div>C#(DotNet)</div>
+                    <div>Python(Flask)</div>
+                    <div>ElasticSearch</div>
+                    <div>MongoDB</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="it-container">
+        <div class="it-header">
+            <h1>SKILLS</h1>
+        </div>
+        <div class="it-content row">
+            <div class="col-md-7">
+                <h4>Backend</h4>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div>C/C++</div>
+                        <div>C#</div>
+                        <div>JAVA</div>
+                        <div>Python</div>
+                        <div>JavaScrip</div>
+                    </div>
+                    <div class="col-md-8 border-left">
+                        <div></div>
+                        <div>DotNET, Entity</div>
+                        <div>J2EE, Habernate, JUnit</div>
+                        <div>Flask, Django, Scrapy, Tensorflow</div>
+                        <div>Nodejs, Express</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <h4>Method & Tech</h4>
+                <div class="row">
+                    <div class="col-md-4 it-img-text">
+                        <img src="{{ url_for('static', filename='img/it/agile.png') }}">
+                        <div>Agile</div>
+                    </div>
+                    <div class="col-md-4 it-img-text">
+                        <img src="{{ url_for('static', filename='img/it/elk.png') }}">
+                        <div>ETL</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="it-content row">
+            <div class="col-md-7">
+                <h4>Frontend</h4>
+                <div>HTML5, iOS, Android, Wechat Mini Program</div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div>CSS</div>
+                        <div>JavaScrip</div>
+                    </div>
+                    <div class="col-md-8 border-left">
+                        <div>Bootstrap</div>
+                        <div>JQuery, NodeJS, TypeScript, ReactJS</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <h4>Database</h4>
+                <div> - MySQL</div>
+                <div> - MSSQL</div>
+                <div> - MongoDB</div>
+                <div> - PostgreSQL</div>
+            </div>
+        </div>
+        <div class="it-content row">
+            <div class="col-md-12">
+                <h4>Linux</h4>
+                <div>Shell, SSH, IPTables, DNS, OpenSSL, Samba, User management, Apache, Nginx, VPN, ELK...</div>
+            </div>
+        </div>
+    </div>
+    <div class="it-container">
+        <div class="it-header">
+            <h1>EDUCATION</h1>
+        </div>
+        <div class="it-content">
+            <div class="it-subheader">Ecole Pour l'Informatique et les Techniques Avancées <b>(EPITA)</b></div>
+            <div>Master of Engineering, 09/2015 - 10/2019</div>
+        </div>
+        <div class="it-content">
+            <div class="it-subheader">University in Shanghai of Science and Technology (USST)</div>
+            <div>Computer Science, 09/2013 - 06/2015</div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,137 @@
+{% extends "photo.layout.html" %}
+{% set display_header = True %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+    <div id="cover" class="img-fluid cover" alt="Responsive image">
+        <div id="cover-dis-1" class="cover-dis">
+            <p class="h3 hiden">OTTO Vision</p>
+            <p class="h1 hiden">Professional Photo & Video </p>
+            <p class="h1 hiden">Solutions in Paris</p>
+            <p class="h5 display">OTTO Vision</p>
+            <p class="h4 display">Professional Photo & Video</p>
+            <p class="h4 display">Solutions in Paris</p>
+        </div>
+        <div class="mask"></div>
+        <img id="img1" src="{{ url_for('static', filename = 'img/photo/cover_1.png') }}">
+    </div>
+    <div class="container">
+        <p class="h2">One symbol of a great man is that he knows photography.</p>
+        <p class="h4" style="color: #777">Just kidding</p>
+        <div class="col-md-4">
+            <img class="cell-img" src="{{ url_for('static', filename = 'img/photo/photo_2.png') }}">
+            <p class="h2 cell-title">Wedding</p>
+            <p class="h4 cell-content">
+                Otto has been working as a wedding photographer for
+                more Than 5 years. He is full of passion and innovation
+                during the work. Customers are pleased with his work
+                and willing to work with him again.
+            </p>
+        </div>
+        <div class="col-md-4">
+            <img class="cell-img" src="{{ url_for('static', filename = 'img/photo/photo_3.png') }}">
+            <p class="h2 cell-title">Fashion</p>
+            <p class="h4 cell-content">
+                During the summer of 2017, Otto got the chance to
+                Shot for fashion brands. The purpose is to catch
+                up with the trend and make himself progressing.
+                He would also like to cooperate with fashion
+                designers. Don't hesitate to contact him if you
+                are one.
+            </p>
+        </div>
+        <div class="col-md-4">
+            <img class="cell-img" src="{{ url_for('static', filename = 'img/photo/photo_1.png') }}">
+            <p class="h2 cell-title">Videography</p>
+            <p class="h4 cell-content">
+                He has been working as a professional
+                videographer for more then 5 years. Cooperating with
+                Chinese media HAIBAO in 2018.
+                His service covers: products shooting, runway,
+                event shooting and weddings.
+            </p>
+        </div>
+    </div>
+    <div class="cover">
+        <div id="cover-dis-2" class="cover-dis">
+            <p class="h1 hiden">PORTRAITURE</p>
+            <p class="h3 hiden">OVER 7 YEARS PHOTOGRAPHING EXPERIENCE.</p>
+            <p class="h4 display">PORTRAITURE</p>
+            <p class="h5 display">OVER 7 YEARS PHOTOGRAPHING EXPERIENCE.</p>
+        </div>
+        <div class="mask"></div>
+        <img id="img2" src="{{ url_for('static', filename = 'img/photo/cover_2.jpg') }}">
+    </div>
+    <div class="container">
+        <p class="h2">The most difficult thing for me is a portrait. You have to try and put your camera between the
+            skin of a person and his shirt</p>
+        <p class="h4" style="color: #777; text-align: right">-– Henri-Cateir-Bresson</p>
+        <p class="h4 cell-content">
+        </p>
+        <div class="col-md-6">
+            <img class="cell-img" src="{{ url_for('static', filename = 'img/photo/photo_5.png') }}">
+        </div>
+        <div class="col-md-6">
+            <img class="cell-img" src="{{ url_for('static', filename = 'img/photo/photo_6.png') }}">
+        </div>
+        <div class="col-md-12">
+            <img class="cell-img" src="{{ url_for('static', filename = 'img/photo/photo_4.png') }}">
+        </div>
+    </div>
+    <div class="cover">
+        <div id="cover-dis-2" class="cover-dis">
+            <p class="h1 hiden">VLOGs & FILMs</p>
+            <p class="h3 hiden">Record every beautiful moment.</p>
+            <p class="h4 display">VLOGs & FILMs</p>
+            <p class="h5 display">Record every beautiful moment.</p>
+        </div>
+        <div class="mask"></div>
+{#        <img id="img2" src="{{ url_for('static', filename = 'img/photo/cover_2.png')}}">#}
+        <video id="video-1" loop autoplay muted preload="auto">
+            <source src="{{ url_for('static', filename = 'img/photo/video.m4v') }}" type="video/mp4"/>
+            <source src="image.webm" onerror="fallback(parentNode)">
+            <img id="img4" src="{{ url_for('static', filename = 'img/photo/cover_4.jpg') }}">
+        </video>
+    </div>
+    <div class="container">
+        <p class="h2">I'm a little bit naked, but that's okay.</p>
+        <p class="h4" style="color: #777; text-align: right">Films coming soon...</p>
+        <p class="h4 cell-content">
+        </p>
+        <div class="col-md-12">
+        </div>
+    </div>
+    <div class="cover">
+        <div id="cover-dis-3" class="cover-dis">
+            <p class="h1 hiden">LIVE EVENT</p>
+            <p class="h3 hiden">I Am A Bystander and A Story Teller.</p>
+            <p class="h4 display">LIVE EVENT</p>
+            <p class="h5 display">I Am A Bystander and A Story Teller.</p>
+        </div>
+        <div class="mask"></div>
+        <img id="img3" src="{{ url_for('static', filename = 'img/photo/cover_3.png') }}">
+    </div>
+    <div class="container">
+        <p class="h2">Great photograph is about depth of feeling, not depth of field.</p>
+        <p class="h4" style="color: #777; text-align: right">-- Peter Adams</p>
+        <div class="col-md-6">
+            <img class="cell-img" src="{{ url_for('static', filename = 'img/photo/photo_8.png') }}">
+            <p class="h2 cell-title">Motion</p>
+        </div>
+        <div class="col-md-6">
+            <img class="cell-img" src="{{ url_for('static', filename = 'img/photo/photo_7.png') }}">
+            <p class="h2 cell-title">Moment</p>
+        </div>
+        <div class="col-md-12">
+            <img class="cell-img" src="{{ url_for('static', filename = 'img/photo/photo_9.png') }}">
+        </div>
+        <div class="col-md-12">
+            <img class="cell-img" src="{{ url_for('static', filename = 'img/photo/photo_10.png') }}">
+        </div>
+    </div>
+    <div class="container" style="align-items: center; text-align: center">
+        <p class="h4">Find anything you need here? Click below to get started.</p>
+        <a href="/contact" style="border:2px solid #777; padding:5px">Work with me</a>
+    </div>
+{% endblock %}

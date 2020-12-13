@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="{{ url_for('static', filename = 'img/logo.png') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'css/general.css') }}">
+        <title>OTTO's World</title>
+
+        <!-- Fonts -->
+{#        <link href="https://fonts.css.network/css?family=Raleway:100,600" rel="stylesheet" type="text/css">#}
+        <link href="{{ url_for('static', filename = 'fonts/Raleway.css') }}" rel="stylesheet" type="text/css">
+
+        <!-- Styles -->
+    </head>
+    <body>
+        <div class="flex-center position-ref full-height main">
+            <div class="top-left">
+                <a href="/"><img id="logo" src="{{url_for('static', filename = 'img/logo.png')}}"></a>
+            </div>
+
+            <div class="content">
+                <div class="title m-b-md">
+                    OTTO's World
+                </div>
+
+                <div class="links">
+                    <a href="/photo">PHOTO</a>
+                    <a href="/it">I.T.</a>
+                    <a href="/about">ABOUT</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
