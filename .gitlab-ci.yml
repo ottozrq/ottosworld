@@ -14,6 +14,6 @@ deploy_staging:
     name: staging
     url: ottozhang.com
   script:
-    - ssh otto@ottozhang "cd ottosworld/ && git checkout master && git pull && sudo systemctl restart ottosworld && exit"
+    - ssh otto@ottozhang.com "cd ottosworld/ && git checkout master && git pull && sudo systemctl restart ottosworld && exit"
   only:
     - master
