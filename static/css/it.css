@@ -204,3 +204,108 @@ a:hover {
   display: block;
   margin: 10px auto;
 }
+
+/* Privacy Policy Styles */
+.policy-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.policy-header {
+  text-align: center;
+  margin-bottom: 40px;
+  border-bottom: 2px solid #222;
+  padding-bottom: 20px;
+}
+
+.policy-header h1 {
+  color: #222;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.last-updated {
+  color: #666;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.policy-content {
+  line-height: 1.6;
+  color: #333;
+}
+
+.policy-content h2 {
+  color: #222;
+  font-size: 1.8rem;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  border-left: 4px solid #222;
+  padding-left: 15px;
+}
+
+.policy-content h3 {
+  color: #333;
+  font-size: 1.4rem;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.policy-content h4 {
+  color: #444;
+  font-size: 1.2rem;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+.policy-content p {
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+.policy-content ul {
+  margin-bottom: 15px;
+  padding-left: 20px;
+}
+
+.policy-content li {
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.policy-content strong {
+  color: #222;
+  font-weight: 600;
+}
+
+.policy-content a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.policy-content a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .policy-container {
+    padding: 15px;
+  }
+  
+  .policy-header h1 {
+    font-size: 2rem;
+  }
+  
+  .policy-content h2 {
+    font-size: 1.5rem;
+  }
+  
+  .policy-content h3 {
+    font-size: 1.2rem;
+  }
+  
+  .policy-content h4 {
+    font-size: 1.1rem;
+  }
+}
