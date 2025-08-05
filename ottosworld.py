@@ -64,6 +64,21 @@ def snoji_policy_fr():
     return render_template('policy/snoji_fr.html')
 
 
+@app.route("/it/policy/cacaou/en")
+def cacaou_policy_en():
+    return render_template('policy/cacaou_en.html')
+
+
+@app.route("/it/policy/cacaou/zh")
+def cacaou_policy_zh():
+    return render_template('policy/cacaou_zh.html')
+
+
+@app.route("/it/policy/cacaou/fr")
+def cacaou_policy_fr():
+    return render_template('policy/cacaou_fr.html')
+
+
 # Page for about
 @app.route("/about")
 def okr():
