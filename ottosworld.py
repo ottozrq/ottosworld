@@ -78,6 +78,18 @@ def cacaou_policy_zh():
 def cacaou_policy_fr():
     return render_template('policy/cacaou_fr.html')
 
+@app.route("/it/policy/artiou/en")
+def artiou_policy_en():
+    return render_template('policy/artiou_en.html')
+
+@app.route("/it/policy/artiou/zh")
+def artiou_policy_zh():
+    return render_template('policy/artiou_zh.html')
+
+@app.route("/it/policy/artiou/fr")
+def artiou_policy_fr():
+    return render_template('policy/artiou_fr.html')
+
 
 # Page for about
 @app.route("/about")
