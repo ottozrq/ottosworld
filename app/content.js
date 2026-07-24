@@ -1,4 +1,4 @@
-export const siteUrl = "https://ottosworld.com";
+export const siteUrl = "https://ottozhang.com";
 
 export const siteContent = {
   en: {
