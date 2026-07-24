@@ -9,6 +9,7 @@ import {
 } from "./content";
 import { ArrowLink, SectionHeading, SiteShell } from "./components";
 import { VideoLauncher } from "./site-client";
+import { VideoStructuredData, WeddingServiceStructuredData } from "./seo";
 
 function ProjectCard({ locale, project, index, compact = false }) {
   const content = getContent(locale);
@@ -45,7 +46,9 @@ function ProjectCard({ locale, project, index, compact = false }) {
             <span>{project.category}</span>
             <span>{project.duration}</span>
           </p>
-          <h3>{project.title}</h3>
+          <h3>
+            <Link href={`${routeFor(locale, "/work")}/${project.id}`}>{project.title}</Link>
+          </h3>
           <p>{project.description}</p>
         </div>
       </div>
@@ -118,7 +121,7 @@ export function HomePage({ locale = "en" }) {
             {localizedProjects.map((project, index) => (
               <Link
                 className={`home-project home-project-${index + 1}`}
-                href={`${routeFor(locale, "/work")}#${project.id}`}
+                href={`${routeFor(locale, "/work")}/${project.id}`}
                 key={project.id}
                 data-reveal
               >
@@ -234,7 +237,7 @@ export function WorkPage({ locale = "en" }) {
         <span className="page-hero-number" aria-hidden="true">02</span>
       </section>
 
-      <section className="work-list section-pad">
+      <section className="work-list section-pad" id="fashion">
         <div className="content-frame">
           <SectionHeading
             eyebrow={work.projectsKicker}
@@ -300,6 +303,7 @@ export function WeddingsPage({ locale = "en" }) {
 
   return (
     <SiteShell locale={locale} headerTheme="overlay">
+      <WeddingServiceStructuredData locale={locale} />
       <section className="wedding-hero" id="top">
         <Image
           src="/static/img/video/wedding1.png"
@@ -378,7 +382,7 @@ export function WeddingsPage({ locale = "en" }) {
               >
                 <Image
                   src={`/static/img/wedding/wedding-${image.id}.jpg`}
-                  alt={`${weddings.galleryKicker} ${index + 1}`}
+                  alt={image.alt[locale]}
                   width={image.width}
                   height={image.height}
                   sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 34vw"
@@ -420,6 +424,61 @@ export function WeddingsPage({ locale = "en" }) {
         </div>
       </section>
     </SiteShell>
+  );
+}
+
+export function ProjectPage({ locale = "en", project, nextProject }) {
+  const isFrench = locale === "fr";
+  const workPath = routeFor(locale, "/work");
+
+  return (
+    <>
+      <VideoStructuredData locale={locale} project={project} />
+      <SiteShell locale={locale}>
+        <article className="film-detail" id="top">
+          <header className="film-detail-header content-frame">
+            <Link className="film-detail-back" href={workPath}>
+              ← {isFrench ? "Tous les projets" : "All work"}
+            </Link>
+            <p className="eyebrow eyebrow-gold">{project.category}</p>
+            <h1>{project.title}</h1>
+            <p className="film-detail-intro">{project.description}</p>
+          </header>
+
+          <div className="film-detail-player content-frame">
+            <video controls playsInline poster={project.poster} preload="metadata">
+              <source src={project.videoUrl} type="video/mp4" />
+              {isFrench
+                ? "Votre navigateur ne prend pas en charge la vidéo HTML."
+                : "Your browser does not support HTML video."}
+            </video>
+          </div>
+
+          <div className="film-detail-meta content-frame">
+            <div>
+              <span>{isFrench ? "Format" : "Format"}</span>
+              <p>{project.category}</p>
+            </div>
+            <div>
+              <span>{isFrench ? "Durée" : "Duration"}</span>
+              <p>{project.duration}</p>
+            </div>
+            <div>
+              <span>{isFrench ? "Réalisation" : "Created by"}</span>
+              <p>Otto Zhang · OTTO Vision</p>
+            </div>
+          </div>
+
+          <footer className="film-detail-next content-frame">
+            <p className="eyebrow">{isFrench ? "Projet suivant" : "Next project"}</p>
+            <Link href={`${workPath}/${nextProject.id}`}>
+              <span>{nextProject.title}</span>
+              <span aria-hidden="true">↗</span>
+            </Link>
+          </footer>
+        </article>
+      </SiteShell>
+    </>
   );
 }
 

@@ -1,23 +1,30 @@
-import { siteUrl } from "./content";
+import { projects, routeFor, siteUrl } from "./content";
 
 export default function sitemap() {
-  const routes = [
-    "",
+  const pairedPaths = [
+    "/",
     "/work",
     "/weddings",
     "/about",
     "/contact",
-    "/fr",
-    "/fr/work",
-    "/fr/weddings",
-    "/fr/about",
-    "/fr/contact"
+    "/it",
+    ...projects.map((project) => `/work/${project.id}`)
   ];
 
-  return routes.map((route) => ({
-    url: `${siteUrl}${route}`,
-    lastModified: new Date(),
-    changeFrequency: route.includes("contact") ? "yearly" : "monthly",
-    priority: route === "" || route === "/fr" ? 1 : 0.8
-  }));
+  return pairedPaths.flatMap((path) => {
+    const englishPath = path === "/" ? "" : path;
+    const frenchPath = routeFor("fr", path);
+    const englishUrl = `${siteUrl}${englishPath}`;
+    const frenchUrl = `${siteUrl}${frenchPath}`;
+    const languages = {
+      en: englishUrl,
+      fr: frenchUrl,
+      "x-default": englishUrl
+    };
+
+    return [
+      { url: englishUrl, alternates: { languages } },
+      { url: frenchUrl, alternates: { languages } }
+    ];
+  });
 }

@@ -42,7 +42,7 @@ export function SiteFooter({ locale = "en" }) {
       </div>
       <div className="footer-bottom">
         <span>© {new Date().getFullYear()} {content.footer.rights}</span>
-        <Link href="/it">{content.footer.archive}</Link>
+        <Link href={routeFor(locale, "/it")}>{content.footer.archive}</Link>
         <a href="#top">↑</a>
       </div>
     </footer>

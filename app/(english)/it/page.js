@@ -8,5 +8,5 @@ export const metadata = createMetadata({
 });
 
 export default function Page() {
-  return <ItContent />;
+  return <ItContent locale="en" />;
 }

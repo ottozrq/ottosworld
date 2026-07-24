@@ -383,6 +383,7 @@ export const projects = [
     homePoster: "/static/img/home/walk-in-the-crowd.jpg",
     videoUrl: "/media/work/walk-in-the-crowd.mp4",
     duration: "00:16",
+    uploadDate: "2019-09-24",
     featured: true,
     copy: {
       en: {
@@ -408,6 +409,7 @@ export const projects = [
     homePoster: "/static/img/home/wedding-2023.jpg",
     videoUrl: "/media/work/wedding-2023.mp4",
     duration: "02:54",
+    uploadDate: "2023-10-08",
     featured: true,
     copy: {
       en: {
@@ -433,6 +435,7 @@ export const projects = [
     homePoster: "/static/img/home/wedding-2025.jpg",
     videoUrl: "/media/work/wedding-2025.mp4",
     duration: "04:01",
+    uploadDate: "2025-06-13",
     featured: true,
     copy: {
       en: {
@@ -458,6 +461,7 @@ export const projects = [
     homePoster: "/static/img/home/wedding-2024.jpg",
     videoUrl: "/media/work/wedding-2024.mp4",
     duration: "02:51",
+    uploadDate: "2024-03-31",
     featured: true,
     copy: {
       en: {
@@ -482,6 +486,7 @@ export const projects = [
     poster: "/static/img/work/ds-e-tense.jpg",
     videoUrl: "/media/work/ds-e-tense.mp4",
     duration: "01:05",
+    uploadDate: "2019-05-26",
     featured: false,
     copy: {
       en: {
@@ -506,6 +511,7 @@ export const projects = [
     poster: "/static/img/work/fashion-interviews.jpg",
     videoUrl: "/media/work/fashion-interviews.mp4",
     duration: "00:56",
+    uploadDate: "2018-09-20",
     featured: false,
     copy: {
       en: {
@@ -578,18 +584,114 @@ export const photography = [
 ];
 
 export const weddingImages = [
-  { id: 2, width: 939, height: 626 },
-  { id: 25, width: 1200, height: 800 },
-  { id: 6, width: 1094, height: 729 },
-  { id: 3, width: 729, height: 1094 },
-  { id: 21, width: 800, height: 1200 },
-  { id: 11, width: 429, height: 643 },
-  { id: 5, width: 729, height: 1094 },
-  { id: 4, width: 1094, height: 729 },
-  { id: 8, width: 1094, height: 729 },
-  { id: 9, width: 1016, height: 677 },
-  { id: 22, width: 1200, height: 800 },
-  { id: 19, width: 1055, height: 703 }
+  {
+    id: 2,
+    width: 939,
+    height: 626,
+    alt: {
+      en: "Bride wiping away a tear during her wedding ceremony",
+      fr: "Mariée essuyant une larme pendant sa cérémonie de mariage"
+    }
+  },
+  {
+    id: 25,
+    width: 1200,
+    height: 800,
+    alt: {
+      en: "Newlyweds beside the Seine with Notre-Dame in the distance",
+      fr: "Jeunes mariés au bord de la Seine avec Notre-Dame à l’arrière-plan"
+    }
+  },
+  {
+    id: 6,
+    width: 1094,
+    height: 729,
+    alt: {
+      en: "Silhouette of a bride and groom kissing at sunset",
+      fr: "Silhouette d’une mariée et d’un marié s’embrassant au coucher du soleil"
+    }
+  },
+  {
+    id: 3,
+    width: 729,
+    height: 1094,
+    alt: {
+      en: "Bride and groom embracing in a green Paris garden",
+      fr: "Mariée et marié enlacés dans un jardin parisien"
+    }
+  },
+  {
+    id: 21,
+    width: 800,
+    height: 1200,
+    alt: {
+      en: "Bride in her wedding gown looking toward the Eiffel Tower",
+      fr: "Mariée en robe regardant vers la tour Eiffel"
+    }
+  },
+  {
+    id: 11,
+    width: 429,
+    height: 643,
+    alt: {
+      en: "Wedding couple posed on stone steps before a red church door",
+      fr: "Couple de mariés posé sur des marches devant une porte d’église rouge"
+    }
+  },
+  {
+    id: 5,
+    width: 729,
+    height: 1094,
+    alt: {
+      en: "Bride on the steps of a historic Paris building",
+      fr: "Mariée sur les marches d’un bâtiment historique parisien"
+    }
+  },
+  {
+    id: 4,
+    width: 1094,
+    height: 729,
+    alt: {
+      en: "Woman in a flowing red gown beside the Louvre Pyramid at dusk",
+      fr: "Femme en robe rouge fluide près de la pyramide du Louvre au crépuscule"
+    }
+  },
+  {
+    id: 8,
+    width: 1094,
+    height: 729,
+    alt: {
+      en: "Wedding couple beneath a stone arch with the Eiffel Tower beyond",
+      fr: "Couple de mariés sous une arche de pierre face à la tour Eiffel"
+    }
+  },
+  {
+    id: 9,
+    width: 1016,
+    height: 677,
+    alt: {
+      en: "Woman in a red gown on the steps of a Paris monument at night",
+      fr: "Femme en robe rouge sur les marches d’un monument parisien de nuit"
+    }
+  },
+  {
+    id: 22,
+    width: 1200,
+    height: 800,
+    alt: {
+      en: "Bride surrounded by flying pigeons near Notre-Dame in Paris",
+      fr: "Mariée entourée de pigeons en vol près de Notre-Dame à Paris"
+    }
+  },
+  {
+    id: 19,
+    width: 1055,
+    height: 703,
+    alt: {
+      en: "Illuminated arches of the Louvre courtyard at night",
+      fr: "Arcades illuminées de la cour du Louvre de nuit"
+    }
+  }
 ];
 
 export function getContent(locale = "en") {
@@ -601,6 +703,10 @@ export function getProjects(locale = "en") {
     ...project,
     ...project.copy[locale]
   }));
+}
+
+export function getProject(locale = "en", id) {
+  return getProjects(locale).find((project) => project.id === id);
 }
 
 export function routeFor(locale, path = "/") {

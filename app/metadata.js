@@ -1,4 +1,4 @@
-import { getContent, routeFor, siteUrl } from "./content";
+import { routeFor, siteUrl } from "./content";
 
 const pageDescriptions = {
   en: {
@@ -48,6 +48,39 @@ const pageTitles = {
   }
 };
 
+const pageSocialImages = {
+  home: {
+    url: "/static/img/video/wedding2.png",
+    width: 1557,
+    height: 874
+  },
+  work: {
+    url: "/static/img/work/walk-in-the-crowd.jpg",
+    width: 1600,
+    height: 900
+  },
+  weddings: {
+    url: "/static/img/video/wedding1.png",
+    width: 1561,
+    height: 875
+  },
+  about: {
+    url: "/static/img/about/otto-portrait.jpg",
+    width: 1332,
+    height: 2000
+  },
+  contact: {
+    url: "/static/img/photo/cover_2.jpg",
+    width: 6000,
+    height: 4000
+  },
+  it: {
+    url: "/static/img/it/photo.jpg",
+    width: 637,
+    height: 637
+  }
+};
+
 export const metadataBase = new URL(siteUrl);
 
 export function createMetadata({ locale = "en", page, path }) {
@@ -57,6 +90,7 @@ export function createMetadata({ locale = "en", page, path }) {
   const englishPath = path;
   const frenchPath = routeFor("fr", path);
   const canonical = locale === "fr" ? frenchPath : englishPath;
+  const socialImage = pageSocialImages[page];
 
   return {
     metadataBase,
@@ -79,10 +113,8 @@ export function createMetadata({ locale = "en", page, path }) {
       siteName: "OTTO Vision",
       images: [
         {
-          url: "/static/img/video/wedding2.png",
-          width: 1557,
-          height: 874,
-          alt: getContent(locale).home.heroCopy
+          ...socialImage,
+          alt: `${title} — OTTO Vision`
         }
       ]
     },
@@ -90,7 +122,44 @@ export function createMetadata({ locale = "en", page, path }) {
       card: "summary_large_image",
       title,
       description,
-      images: ["/static/img/video/wedding2.png"]
+      images: [socialImage.url]
+    }
+  };
+}
+
+export function createProjectMetadata({ locale = "en", project }) {
+  const path = `/work/${project.id}`;
+  const englishPath = path;
+  const frenchPath = routeFor("fr", path);
+  const canonical = locale === "fr" ? frenchPath : englishPath;
+
+  return {
+    metadataBase,
+    title: project.title,
+    description: project.description,
+    alternates: {
+      canonical,
+      languages: {
+        en: englishPath,
+        fr: frenchPath,
+        "x-default": englishPath
+      }
+    },
+    openGraph: {
+      title: project.title,
+      description: project.description,
+      type: "video.other",
+      locale: locale === "fr" ? "fr_FR" : "en_GB",
+      url: canonical,
+      siteName: "OTTO Vision",
+      images: [{ url: project.poster, alt: project.title }],
+      videos: [{ url: `${metadataBase.origin}${project.videoUrl}`, type: "video/mp4" }]
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: project.title,
+      description: project.description,
+      images: [project.poster]
     }
   };
 }

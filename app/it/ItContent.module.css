@@ -52,6 +52,23 @@
   gap: 24px;
 }
 
+.localeSwitch {
+  display: flex;
+  gap: 7px;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+}
+
+.localeSwitch span {
+  color: #777;
+}
+
+.localeSwitch .activeLocale {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
 .navigation a {
   color: #fff;
   text-decoration: none;
@@ -285,8 +302,13 @@
   }
 
   .navigation {
-    gap: 12px;
+    gap: 10px;
     font-size: 14px;
+  }
+
+  .localeSwitch {
+    gap: 4px;
+    font-size: 10px;
   }
 
   .sidebar {

@@ -7,10 +7,6 @@ import { useEffect, useRef, useState } from "react";
 import { getContent, routeFor } from "./content";
 
 function localePath(pathname, nextLocale) {
-  if (pathname.startsWith("/it")) {
-    return nextLocale === "fr" ? "/fr" : "/it";
-  }
-
   const cleanPath =
     pathname === "/fr" ? "/" : pathname.startsWith("/fr/") ? pathname.slice(3) : pathname;
 

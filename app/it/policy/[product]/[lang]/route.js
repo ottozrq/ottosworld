@@ -26,7 +26,8 @@ export async function GET(_request, context) {
 
   return new Response(html, {
     headers: {
-      "content-type": "text/html; charset=utf-8"
+      "content-type": "text/html; charset=utf-8",
+      "X-Robots-Tag": "noindex"
     }
   });
 }
