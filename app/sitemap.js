@@ -1,5 +1,7 @@
 import { projects, routeFor, siteUrl } from "./content";
 
+export const dynamic = "force-static";
+
 export default function sitemap() {
   const pairedPaths = [
     "/",

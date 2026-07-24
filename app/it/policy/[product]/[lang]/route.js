@@ -13,6 +13,15 @@ const policyFiles = {
   "artiou:fr": "artiou_fr.html"
 };
 
+export function generateStaticParams() {
+  return Object.keys(policyFiles).map((key) => {
+    const [product, lang] = key.split(":");
+    return { product, lang };
+  });
+}
+
+export const dynamic = "force-static";
+
 export async function GET(_request, context) {
   const { product, lang } = await context.params;
   const fileName = policyFiles[`${product}:${lang}`];
