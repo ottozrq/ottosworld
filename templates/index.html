@@ -1,36 +1,458 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" href="{{ url_for('static', filename = 'img/logo.png') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename = 'css/general.css') }}">
-        <title>OTTO's World</title>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="OTTO Vision creates cinematic wedding films, fashion videos, brand stories and event films in Paris, France and across Europe.">
+    <meta property="og:title" content="OTTO Vision | Paris Wedding Filmmaker & Video Creator">
+    <meta property="og:description" content="Cinematic wedding films, fashion videos, brand stories and event films based in Paris.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="{{ url_for('static', filename='img/video/wedding2.png', _external=True) }}">
+    <link rel="icon" href="{{ url_for('static', filename = 'img/logo.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'fonts/Raleway.css') }}" type="text/css">
+    <title>OTTO Vision | Paris Wedding Filmmaker & Video Creator</title>
+    <style>
+        html, body {
+            background-color: #f2f1ef;
+            color: #181818;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 100;
+            margin: 0;
+        }
 
-        <!-- Fonts -->
-{#        <link href="https://fonts.css.network/css?family=Raleway:100,600" rel="stylesheet" type="text/css">#}
-        <link href="{{ url_for('static', filename = 'fonts/Raleway.css') }}" rel="stylesheet" type="text/css">
+        body {
+            line-height: 1.6;
+        }
 
-        <!-- Styles -->
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height main">
-            <div class="top-left">
-                <a href="/"><img id="logo" src="{{url_for('static', filename = 'img/logo.png')}}"></a>
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+        }
+
+        .site-header {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+            left: 0;
+            padding: 18px 32px;
+            position: fixed;
+            right: 0;
+            top: 0;
+            z-index: 10;
+        }
+
+        .site-header img {
+            height: 46px;
+            width: auto;
+        }
+
+        .site-nav a {
+            color: #f7f3ee;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: .1rem;
+            margin-left: 24px;
+            text-transform: uppercase;
+        }
+
+        .hero {
+            align-items: flex-end;
+            background: #111;
+            color: #fff;
+            display: flex;
+            min-height: 92vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero::after {
+            background: linear-gradient(180deg, rgba(0,0,0,.38), rgba(0,0,0,.48));
+            bottom: 0;
+            content: "";
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        .hero-media {
+            height: 100%;
+            left: 0;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+
+        .hero-content {
+            max-width: 760px;
+            padding: 0 32px 88px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .eyebrow {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: .14rem;
+            margin: 0 0 18px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 64px;
+            font-weight: 100;
+            line-height: 1.08;
+            margin: 0 0 24px;
+        }
+
+        .hero-copy {
+            color: #eee6dd;
+            font-size: 20px;
+            margin: 0 0 34px;
+            max-width: 640px;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .button {
+            border: 1px solid #fff;
+            color: #fff;
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: .1rem;
+            padding: 13px 18px;
+            text-transform: uppercase;
+        }
+
+        .button.primary {
+            background: #fff;
+            color: #111;
+        }
+
+        .section {
+            padding: 72px 32px;
+        }
+
+        .section-inner {
+            margin: 0 auto;
+            max-width: 1120px;
+        }
+
+        .section-kicker {
+            color: #67625e;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: .12rem;
+            margin: 0 0 12px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            font-size: 34px;
+            font-weight: 100;
+            line-height: 1.25;
+            margin: 0 0 28px;
+            max-width: 760px;
+        }
+
+        .project-grid,
+        .service-grid,
+        .process-grid {
+            display: grid;
+            gap: 28px;
+        }
+
+        .project-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .project-card {
+            background: #fff;
+        }
+
+        .project-card img {
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+        }
+
+        .project-card div {
+            padding: 18px;
+        }
+
+        .project-card h3,
+        .service h3,
+        .process h3 {
+            color: #111;
+            font-size: 20px;
+            font-weight: 100;
+            margin: 0 0 8px;
+        }
+
+        .project-card p,
+        .service p,
+        .process p,
+        .style-copy {
+            color: #4d4a47;
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .service-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .service,
+        .process {
+            border-top: 1px solid #c7c1bb;
+            padding-top: 18px;
+        }
+
+        .style-band {
+            background: #171717;
+            color: #fff;
+        }
+
+        .style-band .section-kicker,
+        .style-band .style-copy {
+            color: #d8d0c7;
+        }
+
+        .process-grid {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .cta {
+            background: #dedbd6;
+            text-align: center;
+        }
+
+        .cta h2 {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta .button {
+            border-color: #111;
+            color: #111;
+        }
+
+        .footer {
+            align-items: center;
+            background: #111;
+            color: #bfb8b0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            justify-content: space-between;
+            padding: 28px 32px;
+        }
+
+        .footer a {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: .1rem;
+            margin-left: 18px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 900px) {
+            .project-grid,
+            .service-grid,
+            .process-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            h1 {
+                font-size: 48px;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .site-header {
+                padding: 14px 18px;
+            }
+
+            .site-nav a {
+                margin-left: 12px;
+            }
+
+            .site-nav a:nth-child(2) {
+                display: none;
+            }
+
+            .hero {
+                min-height: 88vh;
+            }
+
+            .hero-content {
+                padding: 0 22px 54px;
+            }
+
+            h1 {
+                font-size: 38px;
+            }
+
+            .hero-copy {
+                font-size: 17px;
+            }
+
+            .section {
+                padding: 54px 22px;
+            }
+
+            .project-grid,
+            .service-grid,
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer {
+                display: block;
+            }
+
+            .footer a {
+                display: inline-block;
+                margin: 14px 14px 0 0;
+            }
+        }
+    </style>
+</head>
+<body>
+<header class="site-header">
+    <a href="/"><img src="{{url_for('static', filename = 'img/logo.png')}}" alt="OTTO Vision logo"></a>
+    <nav class="site-nav" aria-label="Main navigation">
+        <a href="/visuals">Films</a>
+        <a href="/wedding">Wedding</a>
+        <a href="/contact">Contact</a>
+    </nav>
+</header>
+
+<main>
+    <section class="hero">
+        <img class="hero-media" src="{{ url_for('static', filename='img/video/wedding2.png') }}" alt="Cinematic wedding film frame in Paris">
+        <div class="hero-content">
+            <p class="eyebrow">Paris based video creator</p>
+            <h1>OTTO Vision</h1>
+            <p class="hero-copy">Cinematic wedding films, fashion videos, brand stories and event films in Paris, France and across Europe.</p>
+            <div class="actions">
+                <a class="button primary" href="/visuals">Watch films</a>
+                <a class="button" href="/contact">Work with me</a>
             </div>
+        </div>
+    </section>
 
-            <div class="content">
-                <div class="title m-b-md">
-                    OTTO's World
+    <section class="section" id="films">
+        <div class="section-inner">
+            <p class="section-kicker">Featured work</p>
+            <h2>Selected films for couples, designers, brands and live moments.</h2>
+            <div class="project-grid">
+                <a class="project-card" href="/visuals">
+                    <img src="{{ url_for('static', filename='img/video/wedding1.png') }}" alt="Wedding film project by OTTO Vision">
+                    <div>
+                        <h3>Wedding Films</h3>
+                        <p>Cinematic wedding stories, teasers and full-day coverage.</p>
+                    </div>
+                </a>
+                <a class="project-card" href="/visuals">
+                    <img src="{{ url_for('static', filename='img/video/fashion1.png') }}" alt="Fashion video project by OTTO Vision">
+                    <div>
+                        <h3>Fashion Videos</h3>
+                        <p>Campaign films, lookbooks and social-first visual pieces.</p>
+                    </div>
+                </a>
+                <a class="project-card" href="/visuals">
+                    <img src="{{ url_for('static', filename='img/video/product.png') }}" alt="Brand video project by OTTO Vision">
+                    <div>
+                        <h3>Brand Stories</h3>
+                        <p>Product videos, event recaps and polished brand content.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-inner">
+            <p class="section-kicker">Services</p>
+            <h2>Video production shaped around the moment, the mood and the people in front of the camera.</h2>
+            <div class="service-grid">
+                <div class="service">
+                    <h3>Wedding Films</h3>
+                    <p>Elopements, pre-wedding sessions, ceremony coverage, highlight films and full wedding stories.</p>
                 </div>
-
-                <div class="links">
-                    <a href="/photo">PHOTO</a>
-                    <a href="/it">I.T.</a>
-                    <a href="/about">ABOUT</a>
+                <div class="service">
+                    <h3>Fashion & Brand</h3>
+                    <p>Short films for designers, product launches, editorials, campaigns and social channels.</p>
+                </div>
+                <div class="service">
+                    <h3>Events</h3>
+                    <p>Runway shows, private events, corporate moments and highlight films with clean sound and color.</p>
                 </div>
             </div>
         </div>
-    </body>
+    </section>
+
+    <section class="section style-band">
+        <div class="section-inner">
+            <p class="section-kicker">Style</p>
+            <h2>Documentary emotion with a cinematic eye.</h2>
+            <p class="style-copy">I focus on natural movement, honest feeling, careful sound and refined color so every film feels alive without losing elegance.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-inner">
+            <p class="section-kicker">Process</p>
+            <h2>A clear collaboration from the first message to the final delivery.</h2>
+            <div class="process-grid">
+                <div class="process">
+                    <h3>01. Brief</h3>
+                    <p>Tell me about the project, date, location and mood.</p>
+                </div>
+                <div class="process">
+                    <h3>02. Plan</h3>
+                    <p>We define the schedule, deliverables and visual direction.</p>
+                </div>
+                <div class="process">
+                    <h3>03. Film</h3>
+                    <p>I capture the day with attention to story, sound and light.</p>
+                </div>
+                <div class="process">
+                    <h3>04. Deliver</h3>
+                    <p>Editing, color and final files prepared for web and sharing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section cta">
+        <div class="section-inner">
+            <p class="section-kicker">Availability</p>
+            <h2>Planning a wedding, event or video project in Paris?</h2>
+            <a class="button" href="/contact">Start a project</a>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div>OTTO Vision · Paris, France</div>
+    <div>
+        <a href="https://www.instagram.com/otto_zhang/?hl=en">Instagram</a>
+        <a href="mailto:ottozrq@gmail.com">Email</a>
+        <a href="/dev">Dev work</a>
+    </div>
+</footer>
+</body>
 </html>

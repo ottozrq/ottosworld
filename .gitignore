@@ -3,3 +3,7 @@
 
 .idea/
 ottosworld/
+node_modules/
+.next/
+out/
+npm-debug.log*

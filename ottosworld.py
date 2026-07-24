@@ -49,6 +49,11 @@ def it():
     return render_template('it.html')
 
 
+@app.route("/dev")
+def dev():
+    return render_template('it.html')
+
+
 @app.route("/it/policy/snoji/en")
 def snoji_policy_en():
     return render_template('policy/snoji_en.html')

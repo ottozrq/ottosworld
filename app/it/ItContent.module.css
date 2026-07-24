@@ -1,0 +1,333 @@
+.page {
+  --it-dark: #222;
+  --it-muted: #666;
+  min-height: 100vh;
+  background: #fff;
+  color: #111;
+  font-family: "Avenir Next", Avenir, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.page p,
+.page h1,
+.page h2,
+.page h3,
+.page ul {
+  margin-top: 0;
+}
+
+.page h1,
+.page h2,
+.page h3 {
+  font-family: inherit;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--it-dark);
+  color: #fff;
+}
+
+.headerInner {
+  min-height: 64px;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  margin-bottom: 0;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.navigation a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.navigation a:hover,
+.navigation a:focus-visible {
+  color: #aab0b4;
+}
+
+.navigation .contactButton {
+  padding: 7px 13px;
+  border: 1px solid #147be8;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.navigation .contactButton:hover,
+.navigation .contactButton:focus-visible {
+  background: #147be8;
+  color: #fff;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 25%) minmax(0, 1fr);
+  align-items: start;
+}
+
+.sidebar {
+  position: sticky;
+  top: 64px;
+  height: calc(100vh - 64px);
+  padding: 18px 0 40px;
+  overflow-y: auto;
+  background: var(--it-dark);
+  color: #fff;
+}
+
+.portrait {
+  width: 70%;
+  height: auto;
+  display: block;
+  margin: 0 auto 24px;
+  border: 5px solid #fff;
+}
+
+.sidebarSection {
+  width: 70%;
+  margin: 28px auto;
+  text-align: center;
+}
+
+.sidebarSection h3 {
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.sidebarSection p {
+  margin-bottom: 2px;
+}
+
+.identity h1 {
+  margin-bottom: 16px;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.identity p {
+  margin-bottom: 4px;
+  font-size: 20px;
+}
+
+.identity span {
+  font-size: 18px;
+}
+
+.personality ul {
+  margin-bottom: 0;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+
+.personality li {
+  margin-bottom: 4px;
+  padding-left: 12px;
+  position: relative;
+}
+
+.personality li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+}
+
+.main {
+  min-width: 0;
+  padding: 32px 36px 52px;
+}
+
+.resumeSection {
+  margin-bottom: 34px;
+  color: #111;
+  font-size: 20px;
+}
+
+.sectionHeader {
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--it-dark);
+}
+
+.sectionHeader h2 {
+  margin-bottom: 8px;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.entry {
+  margin-bottom: 24px;
+}
+
+.entry h3,
+.skillGroup h3,
+.methods h3 {
+  margin-bottom: 8px;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.entry p,
+.skillGroup p,
+.methods p {
+  margin-bottom: 2px;
+}
+
+.subheader {
+  color: var(--it-muted);
+  text-transform: uppercase;
+}
+
+.entryColumns,
+.skillColumns {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(170px, 1fr);
+  gap: 22px;
+}
+
+.technologyList {
+  padding-left: 22px;
+  border-left: 1px solid var(--it-dark);
+}
+
+.responsibilityTitle {
+  padding-top: 16px;
+}
+
+.responsibilities {
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.responsibilities li::before {
+  content: "- ";
+}
+
+.skillsRow {
+  margin: 20px 0;
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(260px, 5fr);
+  gap: 28px;
+}
+
+.skillColumns {
+  margin-top: 8px;
+  grid-template-columns: minmax(120px, 2fr) minmax(0, 5fr);
+}
+
+.methodGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(90px, 1fr));
+  gap: 22px;
+}
+
+.methodGrid div {
+  text-align: center;
+}
+
+.methodGrid img {
+  width: min(92px, 80%);
+  height: auto;
+  display: block;
+  margin: 8px auto;
+}
+
+.linux {
+  margin-top: 20px;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: minmax(230px, 30%) minmax(0, 1fr);
+  }
+
+  .sidebarSection,
+  .portrait {
+    width: 78%;
+  }
+
+  .main {
+    padding-inline: 26px;
+  }
+
+  .skillsRow {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .headerInner {
+    min-height: 72px;
+    padding: 12px 18px;
+  }
+
+  .brand {
+    font-size: 17px;
+  }
+
+  .navigation {
+    gap: 12px;
+    font-size: 14px;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .layout {
+    display: block;
+  }
+
+  .main {
+    padding: 26px 20px 44px;
+  }
+
+  .resumeSection {
+    font-size: 17px;
+  }
+
+  .sectionHeader h2 {
+    font-size: 30px;
+  }
+
+  .entry h3,
+  .skillGroup h3,
+  .methods h3 {
+    font-size: 21px;
+  }
+
+  .entryColumns,
+  .skillColumns {
+    display: block;
+  }
+
+  .technologyList {
+    margin-top: 14px;
+    padding: 12px 0 0;
+    border-top: 1px solid var(--it-dark);
+    border-left: 0;
+  }
+
+  .skillsRow {
+    gap: 22px;
+  }
+}

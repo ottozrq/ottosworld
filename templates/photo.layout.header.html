@@ -20,21 +20,13 @@
 
     #nav-logo{
         height: 50px;
-        @if(\Request::is('photo'))
-            margin-top: 0px;
-        @else
-            margin-top: 25px;
-        @endif
+        margin-top: 25px;
     }
 
     @media (max-width: 650px){
         #nav-logo{
             height: 20px;
-            @if(\Request::is('photo'))
-                margin-top: 0px;
-            @else
-                margin-top: 30px;
-            @endif
+            margin-top: 30px;
         }
 
         #nav{
@@ -50,11 +42,11 @@
 </style>
 <div id="nav">
     <div style="float: left; width: 60px">
-        <a href="/" ><img id="nav-logo" src="{{ url_for('static', filename = 'img/logo.png') }}"></a>
+        <a href="/" ><img id="nav-logo" src="{{ url_for('static', filename = 'img/logo.png') }}" alt="OTTO Vision logo"></a>
     </div>
     <div style="float: right; text-align: right;">
-        <a href="/photo">Home</a>
-        <a href="/visuals">Visuals</a>
+        <a href="/">Home</a>
+        <a href="/visuals">Films</a>
         <a href="/contact" class="hiden" id="btn-w">Work with me</a>
     </div>
 </div>
