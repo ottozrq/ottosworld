@@ -86,10 +86,10 @@ export const siteContent = {
       ctaButton: "Tell me about it"
     },
     weddings: {
-      eyebrow: "Wedding films",
-      title: "A record of how\nthe day felt.",
+      eyebrow: "Paris wedding videographer",
+      title: "Wedding videographer\nin Paris, France.",
       intro:
-        "Cinematic wedding stories with a documentary heart, created in Paris, across France and throughout Europe.",
+        "Documentary-led, cinematic wedding films for celebrations in Paris, across France and throughout Europe. Available in English, French and Chinese.",
       primaryCta: "Check availability",
       secondaryCta: "See selected work",
       servicesKicker: "Coverage",
@@ -111,12 +111,22 @@ export const siteContent = {
             "A more intimate session in Paris or elsewhere, planned around place, light and the two of you."
         }
       ],
+      detailsKicker: "Wedding videography in France",
+      detailsTitle: "A personal film, planned around your celebration.",
+      details: [
+        ["Based in Paris", "Wedding coverage in Paris and Île-de-France, with travel available throughout France and Europe."],
+        ["Three languages", "Planning and communication in English, French or Chinese for local and international couples."],
+        ["Made to fit the day", "Coverage and deliverables are shaped around your venue, schedule and the moments you most want to remember."]
+      ],
       philosophyKicker: "My approach",
       philosophyTitle: "Present enough to notice. Quiet enough not to interrupt.",
       philosophyCopy:
         "I combine unobtrusive observation with considered portraits and details. The aim is not to manufacture a version of the day, but to preserve its energy with care.",
       galleryKicker: "Wedding stories",
       galleryTitle: "Frames from celebrations in France.",
+      storiesKicker: "Real wedding films",
+      storiesTitle: "Three celebrations, three different rhythms.",
+      storiesButton: "View the wedding story",
       processKicker: "Working together",
       processTitle: "Simple, personal and clear.",
       process: [
@@ -124,6 +134,14 @@ export const siteContent = {
         ["02", "Plan", "We align on coverage, timing, music direction and final films."],
         ["03", "Celebrate", "I film the day with a light footprint and close attention."],
         ["04", "Relive", "Your finished films arrive ready to watch, keep and share."]
+      ],
+      faqKicker: "Practical details",
+      faqTitle: "Planning your wedding film.",
+      faq: [
+        ["Where do you film weddings?", "I am based in Paris and film weddings across Île-de-France, throughout France and elsewhere in Europe."],
+        ["Can we work together in English?", "Yes. I work in English, French and Chinese, including with international couples planning a destination wedding in France."],
+        ["What can be included in our film?", "Coverage can include preparations, ceremony, portraits, speeches and the evening celebration. We define the schedule and final films together before the wedding."],
+        ["How do we check availability?", "Send your date, venue or city, and the kind of celebration you are planning. I will reply with availability and the next useful questions."]
       ],
       ctaTitle: "Tell me about your day.",
       ctaCopy: "Dates are confirmed individually. Early enquiries are always welcome.",
@@ -272,10 +290,10 @@ export const siteContent = {
       ctaButton: "Parlez-m’en"
     },
     weddings: {
-      eyebrow: "Films de mariage",
-      title: "Garder la sensation\nde cette journée.",
+      eyebrow: "Vidéaste mariage à Paris",
+      title: "Vidéaste de mariage\nà Paris.",
       intro:
-        "Des histoires de mariage cinématographiques au cœur documentaire, créées à Paris, en France et partout en Europe.",
+        "Des films de mariage cinématographiques au regard documentaire, réalisés à Paris, partout en France et en Europe. Échanges en français, anglais ou chinois.",
       primaryCta: "Vérifier la disponibilité",
       secondaryCta: "Voir les projets",
       servicesKicker: "Prestations",
@@ -297,12 +315,22 @@ export const siteContent = {
             "Une séance plus intime à Paris ou ailleurs, imaginée autour du lieu, de la lumière et de votre histoire."
         }
       ],
+      detailsKicker: "Vidéaste de mariage en France",
+      detailsTitle: "Un film personnel, pensé autour de votre célébration.",
+      details: [
+        ["Basé à Paris", "Couverture des mariages à Paris et en Île-de-France, avec déplacements partout en France et en Europe."],
+        ["Trois langues", "Préparation et échanges en français, anglais ou chinois, pour les couples locaux et internationaux."],
+        ["Adapté à votre journée", "La couverture et les livrables sont définis selon votre lieu, votre programme et les souvenirs qui comptent le plus pour vous."]
+      ],
       philosophyKicker: "Mon approche",
       philosophyTitle: "Assez présent pour remarquer. Assez discret pour ne pas interrompre.",
       philosophyCopy:
         "J’associe observation discrète, portraits réfléchis et attention aux détails. L’objectif n’est pas de fabriquer une version de la journée, mais d’en préserver l’énergie avec soin.",
       galleryKicker: "Histoires de mariage",
       galleryTitle: "Images de célébrations en France.",
+      storiesKicker: "Vrais films de mariage",
+      storiesTitle: "Trois célébrations, trois rythmes différents.",
+      storiesButton: "Découvrir cette histoire",
       processKicker: "Travailler ensemble",
       processTitle: "Simple, personnel et clair.",
       process: [
@@ -310,6 +338,14 @@ export const siteContent = {
         ["02", "Préparer", "Nous accordons la couverture, le timing, la musique et les films livrés."],
         ["03", "Célébrer", "Je filme la journée avec discrétion et une attention constante."],
         ["04", "Revivre", "Vos films arrivent prêts à être regardés, conservés et partagés."]
+      ],
+      faqKicker: "Informations pratiques",
+      faqTitle: "Préparer votre film de mariage.",
+      faq: [
+        ["Où filmez-vous les mariages ?", "Je suis basé à Paris et filme des mariages en Île-de-France, partout en France et ailleurs en Europe."],
+        ["Pouvons-nous échanger en anglais ?", "Oui. Je travaille en français, en anglais et en chinois, notamment avec les couples internationaux qui organisent leur mariage en France."],
+        ["Que peut inclure notre film ?", "La couverture peut inclure les préparatifs, la cérémonie, les portraits, les discours et la soirée. Nous définissons ensemble le programme et les films livrés avant le mariage."],
+        ["Comment vérifier une disponibilité ?", "Envoyez-moi votre date, votre lieu ou votre ville et le type de célébration prévu. Je vous répondrai avec mes disponibilités et les prochaines questions utiles."]
       ],
       ctaTitle: "Racontez-moi votre journée.",
       ctaCopy: "Chaque date est confirmée individuellement. Les demandes anticipées sont les bienvenues.",
@@ -417,14 +453,34 @@ export const projects = [
         category: "Wedding highlight · 2023",
         title: "Ceremony in Paris",
         description:
-          "A composed wedding story connecting morning rituals, city movement and a luminous ceremony in Paris."
+          "A composed Paris wedding film connecting morning rituals, city movement and a luminous ceremony.",
+        caseStudy: {
+          location: "Paris, France",
+          format: "Wedding highlight",
+          storyTitle: "A wedding story carried by the city",
+          story: "The film begins with the quiet rituals of the morning, then opens into the movement of Paris and the light of the ceremony. Small gestures give the day its pace: preparations, arrivals and the exchanges that happen between the expected moments.",
+          approachTitle: "The filmmaking approach",
+          approach: "I followed the day with a discreet documentary camera, using the architecture and changing city light to connect each chapter. The edit keeps the celebration calm and spacious while preserving the energy of being in Paris.",
+          deliveryTitle: "The finished film",
+          delivery: "A 2 minute 54 second wedding highlight that brings the morning, portraits and ceremony into one concise story."
+        }
       },
       fr: {
         number: "02",
         category: "Film essentiel · Mariage · 2023",
         title: "Cérémonie à Paris",
         description:
-          "Un récit de mariage posé, reliant les rituels du matin, le mouvement de la ville et une cérémonie lumineuse à Paris."
+          "Un film de mariage à Paris reliant les rituels du matin, le mouvement de la ville et une cérémonie lumineuse.",
+        caseStudy: {
+          location: "Paris, France",
+          format: "Film essentiel",
+          storyTitle: "Une histoire de mariage portée par la ville",
+          story: "Le film commence par les rituels calmes du matin, puis s’ouvre sur le mouvement de Paris et la lumière de la cérémonie. Les petits gestes donnent son rythme à la journée : préparatifs, arrivées et échanges entre les moments attendus.",
+          approachTitle: "L’approche de réalisation",
+          approach: "J’ai suivi la journée avec une caméra documentaire discrète, en utilisant l’architecture et les changements de lumière pour relier chaque chapitre. Le montage garde une respiration calme tout en préservant l’énergie de Paris.",
+          deliveryTitle: "Le film livré",
+          delivery: "Un film essentiel de 2 minutes 54 qui réunit le matin, les portraits et la cérémonie dans un récit concis."
+        }
       }
     }
   },
@@ -443,14 +499,34 @@ export const projects = [
         category: "Wedding film · 2025",
         title: "Château Wedding",
         description:
-          "A full wedding chapter moving between open-air portraits, shared traditions and an evening celebration."
+          "A cinematic château wedding film moving between open-air portraits, shared traditions and an evening celebration.",
+        caseStudy: {
+          location: "France",
+          format: "Wedding film",
+          storyTitle: "From open-air portraits to the evening celebration",
+          story: "This celebration moves between the calm of the château grounds, shared traditions and the gathering energy of the evening. The story gives equal weight to the couple, their guests and the atmosphere around them.",
+          approachTitle: "The filmmaking approach",
+          approach: "Wide views establish the setting while close documentary moments hold onto expressions and gestures. The edit grows with the day, moving from measured portraits into a more lively evening rhythm.",
+          deliveryTitle: "The finished film",
+          delivery: "A 4 minute 1 second wedding film shaped as a complete chapter, from outdoor portraits through the evening celebration."
+        }
       },
       fr: {
         number: "03",
         category: "Film de mariage · 2025",
         title: "Mariage au château",
         description:
-          "Un chapitre de mariage entre portraits en plein air, traditions partagées et célébration du soir."
+          "Un film de mariage au château entre portraits en plein air, traditions partagées et célébration du soir.",
+        caseStudy: {
+          location: "France",
+          format: "Film de mariage",
+          storyTitle: "Des portraits en plein air à la célébration du soir",
+          story: "Cette célébration passe du calme des extérieurs du château aux traditions partagées, puis à l’énergie grandissante de la soirée. Le récit accorde la même place au couple, à ses invités et à l’atmosphère qui les entoure.",
+          approachTitle: "L’approche de réalisation",
+          approach: "Les plans larges installent le lieu tandis que les moments documentaires rapprochés gardent les expressions et les gestes. Le montage grandit avec la journée, des portraits posés vers un rythme de soirée plus vivant.",
+          deliveryTitle: "Le film livré",
+          delivery: "Un film de mariage de 4 minutes 1 seconde construit comme un chapitre complet, des portraits extérieurs à la fête du soir."
+        }
       }
     }
   },
@@ -469,14 +545,34 @@ export const projects = [
         category: "Wedding trailer · 2024",
         title: "A Spring Wedding",
         description:
-          "A gentle trailer built from preparation, family gestures and the small exchanges that give a wedding its character."
+          "A gentle spring wedding film built from preparations, family gestures and the small exchanges that give the day its character.",
+        caseStudy: {
+          location: "France",
+          format: "Wedding trailer",
+          storyTitle: "A spring celebration told through small gestures",
+          story: "Preparations and family exchanges form the emotional centre of this spring wedding. Rather than rushing from one formal moment to the next, the story stays with the glances and movements that make the celebration personal.",
+          approachTitle: "The filmmaking approach",
+          approach: "I worked close to the natural pace of the day, combining careful compositions with candid observation. The restrained edit lets family gestures and changes in atmosphere carry the film.",
+          deliveryTitle: "The finished film",
+          delivery: "A 2 minute 51 second trailer that preserves the warmth of the preparations, ceremony and time shared with family."
+        }
       },
       fr: {
         number: "04",
         category: "Bande-annonce · Mariage · 2024",
         title: "Un mariage de printemps",
         description:
-          "Une bande-annonce délicate composée de préparatifs, de gestes familiaux et de petits échanges qui donnent son caractère à la journée."
+          "Un film de mariage printanier composé de préparatifs, de gestes familiaux et de petits échanges qui donnent son caractère à la journée.",
+        caseStudy: {
+          location: "France",
+          format: "Bande-annonce de mariage",
+          storyTitle: "Une célébration printanière racontée par les petits gestes",
+          story: "Les préparatifs et les échanges familiaux forment le cœur émotionnel de ce mariage de printemps. Plutôt que de courir d’un moment officiel au suivant, le récit reste auprès des regards et des mouvements qui rendent la célébration personnelle.",
+          approachTitle: "L’approche de réalisation",
+          approach: "J’ai travaillé au rythme naturel de la journée, entre compositions précises et observation spontanée. Le montage retenu laisse les gestes familiaux et les changements d’atmosphère porter le film.",
+          deliveryTitle: "Le film livré",
+          delivery: "Une bande-annonce de 2 minutes 51 qui conserve la chaleur des préparatifs, de la cérémonie et du temps partagé en famille."
+        }
       }
     }
   },
@@ -701,7 +797,8 @@ export function getContent(locale = "en") {
 export function getProjects(locale = "en") {
   return projects.map((project) => ({
     ...project,
-    ...project.copy[locale]
+    ...project.copy[locale],
+    kind: project.category
   }));
 }
 

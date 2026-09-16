@@ -67,21 +67,45 @@ export function SiteStructuredData({ locale = "en" }) {
 
 export function WeddingServiceStructuredData({ locale = "en" }) {
   const isFrench = locale === "fr";
+  const faq = isFrench
+    ? [
+        ["Où filmez-vous les mariages ?", "Je suis basé à Paris et filme des mariages en Île-de-France, partout en France et ailleurs en Europe."],
+        ["Pouvons-nous échanger en anglais ?", "Oui. Je travaille en français, en anglais et en chinois."],
+        ["Comment vérifier une disponibilité ?", "Envoyez votre date, votre lieu ou votre ville et le type de célébration prévu."]
+      ]
+    : [
+        ["Where do you film weddings?", "I am based in Paris and film weddings across Île-de-France, throughout France and elsewhere in Europe."],
+        ["Can we work together in English?", "Yes. I work in English, French and Chinese."],
+        ["How do we check availability?", "Send your date, venue or city, and the kind of celebration you are planning."]
+      ];
 
   return (
     <JsonLd
       data={{
         "@context": "https://schema.org",
-        "@type": "Service",
-        "@id": `${siteUrl}${routeFor(locale, "/weddings")}#service`,
-        name: isFrench ? "Films de mariage cinématographiques" : "Cinematic wedding films",
-        description: isFrench
-          ? "Films de mariage, élopements et séances avant mariage réalisés à Paris, en France et partout en Europe."
-          : "Wedding films, elopements and pre-wedding sessions created in Paris, France and across Europe.",
-        url: `${siteUrl}${routeFor(locale, "/weddings")}`,
-        provider: { "@id": `${siteUrl}/#studio` },
-        areaServed: ["Paris", "France", "Europe"],
-        serviceType: isFrench ? "Réalisation de films de mariage" : "Wedding filmmaking"
+        "@graph": [
+          {
+            "@type": "Service",
+            "@id": `${siteUrl}${routeFor(locale, "/weddings")}#service`,
+            name: isFrench ? "Vidéaste mariage à Paris" : "Paris wedding videographer",
+            description: isFrench
+              ? "Films de mariage documentaires et cinématographiques réalisés à Paris, en France et partout en Europe."
+              : "Documentary-led cinematic wedding films created in Paris, France and across Europe.",
+            url: `${siteUrl}${routeFor(locale, "/weddings")}`,
+            provider: { "@id": `${siteUrl}/#studio` },
+            areaServed: ["Paris", "Île-de-France", "France", "Europe"],
+            serviceType: isFrench ? "Vidéaste de mariage" : "Wedding videography"
+          },
+          {
+            "@type": "FAQPage",
+            "@id": `${siteUrl}${routeFor(locale, "/weddings")}#faq`,
+            mainEntity: faq.map(([question, answer]) => ({
+              "@type": "Question",
+              name: question,
+              acceptedAnswer: { "@type": "Answer", text: answer }
+            }))
+          }
+        ]
       }}
     />
   );

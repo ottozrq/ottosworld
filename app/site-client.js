@@ -44,6 +44,7 @@ export function SiteHeader({ locale = "en", theme = "solid" }) {
   const items = [
     [content.nav.work, "/work"],
     [content.nav.weddings, "/weddings"],
+    [locale === "fr" ? "Conseils" : "Guides", "/journal"],
     [content.nav.about, "/about"],
     [content.nav.contact, "/contact"]
   ];

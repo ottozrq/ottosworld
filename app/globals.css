@@ -1034,6 +1034,10 @@ h3 {
   margin-top: 34px;
 }
 
+.film-detail-meta-four {
+  grid-template-columns: repeat(4, 1fr);
+}
+
 .film-detail-meta > div {
   border-right: 1px solid var(--line);
   padding: 24px 28px;
@@ -1059,6 +1063,81 @@ h3 {
 
 .film-detail-next {
   margin-top: clamp(90px, 12vw, 170px);
+}
+
+.case-study {
+  margin-top: clamp(90px, 12vw, 170px);
+}
+
+.case-study-intro {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.28fr) minmax(0, 1fr);
+}
+
+.case-study-intro .eyebrow {
+  grid-column: 1;
+  padding-top: 14px;
+}
+
+.case-study-intro h2,
+.case-study-intro > p:last-child {
+  grid-column: 2;
+}
+
+.case-study-intro h2,
+.case-study-cta h2 {
+  font-size: clamp(3.5rem, 7vw, 7.5rem);
+  line-height: 0.92;
+}
+
+.case-study-intro > p:last-child {
+  color: var(--muted);
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  margin-top: 36px;
+  max-width: 720px;
+}
+
+.case-study-grid {
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: clamp(70px, 9vw, 120px);
+}
+
+.case-study-grid article {
+  min-height: 280px;
+  padding: 34px 48px 34px 0;
+}
+
+.case-study-grid article + article {
+  border-left: 1px solid var(--line);
+  padding-left: 48px;
+}
+
+.case-study-grid h3,
+.wedding-detail-grid h3,
+.wedding-faq-list h3 {
+  font-size: clamp(1.8rem, 2.7vw, 3rem);
+  margin-bottom: 24px;
+}
+
+.case-study-grid p,
+.wedding-detail-grid p,
+.wedding-faq-list p {
+  color: var(--muted);
+}
+
+.case-study-cta {
+  align-items: flex-end;
+  border-top: 1px solid var(--line);
+  display: flex;
+  gap: 40px;
+  justify-content: space-between;
+  padding-top: clamp(50px, 7vw, 90px);
+}
+
+.case-study-cta h2 {
+  max-width: 850px;
 }
 
 .film-detail-next > a {
@@ -1124,6 +1203,63 @@ h3 {
 .photo-frame-6 {
   grid-column: 7 / span 6;
   grid-row: 16 / span 4;
+}
+
+/* Wedding journal */
+
+.journal-page {
+  padding-top: calc(var(--header-height) + 80px);
+  padding-bottom: 100px;
+}
+
+.journal-heading { max-width: 1050px; margin-bottom: 64px; }
+.journal-heading h1 {
+  font-size: clamp(3.2rem, 6.5vw, 7rem);
+  line-height: 1;
+  white-space: pre-line;
+  margin: 28px 0;
+  overflow-wrap: break-word;
+}
+.journal-heading > p:last-child { max-width: 740px; color: var(--muted); font-size: 1.1rem; }
+.journal-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 64px 40px; }
+.journal-card a { display: block; color: inherit; text-decoration: none; }
+.journal-card-image { position: relative; aspect-ratio: 16 / 10; margin-bottom: 28px; overflow: hidden; }
+.journal-card-image img, .journal-cover img { object-fit: cover; }
+.journal-card h2 { font-size: clamp(2rem, 3.3vw, 3.6rem); line-height: 1.08; margin: 18px 0; }
+.journal-card p:not(.eyebrow) { color: var(--muted); margin-bottom: 24px; max-width: 540px; }
+.journal-card a:hover h2, .journal-card a:focus-visible h2 { color: var(--gold); }
+.journal-breadcrumb { margin-bottom: 42px; }
+.journal-breadcrumb a, .journal-author { color: var(--muted); font-size: 0.85rem; }
+.journal-author { display: inline-block; margin-bottom: 28px; }
+.journal-cover { position: relative; aspect-ratio: 2 / 1; margin-bottom: 70px; }
+.journal-reading-layout { display: grid; grid-template-columns: minmax(180px, 0.32fr) minmax(0, 0.68fr); gap: clamp(36px, 6vw, 90px); }
+.journal-contents ol { padding-left: 20px; margin-top: 24px; }
+.journal-contents li { margin-bottom: 18px; }
+.journal-contents a { color: var(--muted); text-underline-offset: 4px; }
+.journal-body { max-width: 760px; }
+.journal-body section { margin-bottom: 56px; scroll-margin-top: calc(var(--header-height) + 30px); }
+.journal-body h2 { font-size: clamp(2.1rem, 3.4vw, 3.5rem); line-height: 1.08; margin-bottom: 24px; }
+.journal-body p, .journal-body li { font-size: 1.05rem; line-height: 1.85; color: var(--muted); }
+.journal-body p + p { margin-top: 20px; }
+.journal-body ul { padding-left: 24px; margin-top: 24px; }
+.journal-body li + li { margin-top: 12px; }
+.journal-film { padding: 30px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.journal-film h2 { margin: 20px 0; }
+.journal-film a { color: inherit; text-underline-offset: 5px; }
+.journal-cta { margin: 90px 0; padding: 56px clamp(24px, 5vw, 70px); background: var(--paper-deep); }
+.journal-cta h2 { font-size: clamp(2.8rem, 5vw, 5rem); line-height: 1; }
+.journal-cta p { max-width: 620px; margin: 24px 0 32px; color: var(--muted); }
+.journal-related > .eyebrow { margin-bottom: 32px; }
+.journal-related .journal-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.journal-related h2 { font-size: clamp(2rem, 2.6vw, 2.8rem); }
+
+@media (max-width: 800px) {
+  .journal-page { padding-top: calc(var(--header-height) + 48px); padding-bottom: 64px; }
+  .journal-grid, .journal-related .journal-grid, .journal-reading-layout { grid-template-columns: 1fr; }
+  .journal-heading h1 { font-size: clamp(2.8rem, 10vw, 4.5rem); }
+  .journal-cover { aspect-ratio: 4 / 3; margin-bottom: 40px; }
+  .journal-contents { border-bottom: 1px solid var(--line); padding-bottom: 24px; }
+  .journal-cta { margin: 60px 0; }
 }
 
 /* Weddings */
@@ -1222,6 +1358,81 @@ h3 {
 
 .wedding-process {
   background: var(--paper-deep);
+}
+
+.wedding-details,
+.wedding-stories {
+  background: var(--paper-deep);
+}
+
+.wedding-detail-grid,
+.wedding-story-grid {
+  display: grid;
+  gap: clamp(24px, 3vw, 46px);
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.wedding-detail-grid {
+  border-top: 1px solid var(--line);
+}
+
+.wedding-detail-grid article {
+  padding-top: 30px;
+}
+
+.wedding-story-grid a {
+  color: var(--ink);
+  display: block;
+  text-decoration: none;
+}
+
+.wedding-story-image {
+  aspect-ratio: 4 / 5;
+  margin-bottom: 26px;
+  overflow: hidden;
+  position: relative;
+}
+
+.wedding-story-image img {
+  object-fit: cover;
+  transition: transform 500ms ease;
+}
+
+.wedding-story-grid a:hover img,
+.wedding-story-grid a:focus-visible img {
+  transform: scale(1.025);
+}
+
+.wedding-story-grid h3 {
+  font-size: clamp(2.4rem, 3.4vw, 4rem);
+  line-height: 0.95;
+  margin: 18px 0 24px;
+}
+
+.wedding-story-grid span {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.wedding-faq-list {
+  border-top: 1px solid var(--line);
+}
+
+.wedding-faq-list article {
+  display: grid;
+  gap: 40px;
+  grid-template-columns: minmax(220px, 0.45fr) minmax(0, 0.55fr);
+  padding: 34px 0;
+}
+
+.wedding-faq-list article + article {
+  border-top: 1px solid var(--line);
+}
+
+.wedding-faq-list h3 {
+  margin: 0;
 }
 
 /* About */
@@ -1737,6 +1948,49 @@ h3 {
 
   .film-detail-meta {
     grid-template-columns: 1fr;
+  }
+
+  .case-study-intro,
+  .case-study-grid,
+  .wedding-faq-list article {
+    grid-template-columns: 1fr;
+  }
+
+  .case-study-intro .eyebrow,
+  .case-study-intro h2,
+  .case-study-intro > p:last-child {
+    grid-column: 1;
+  }
+
+  .case-study-intro .eyebrow {
+    margin-bottom: 28px;
+    padding-top: 0;
+  }
+
+  .case-study-grid article {
+    min-height: 0;
+    padding: 30px 0;
+  }
+
+  .case-study-grid article + article {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    padding-left: 0;
+  }
+
+  .case-study-cta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .wedding-detail-grid,
+  .wedding-story-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wedding-detail-grid article {
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 30px;
   }
 
   .film-detail-meta > div,

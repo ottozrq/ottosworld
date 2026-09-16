@@ -36,6 +36,7 @@ export function SiteFooter({ locale = "en" }) {
           <span className="footer-label">Explore</span>
           <Link href={routeFor(locale, "/work")}>{content.nav.work}</Link>
           <Link href={routeFor(locale, "/weddings")}>{content.nav.weddings}</Link>
+          <Link href={routeFor(locale, "/journal")}>{locale === "fr" ? "Conseils mariage" : "Wedding guides"}</Link>
           <Link href={routeFor(locale, "/about")}>{content.nav.about}</Link>
           <Link href={routeFor(locale, "/contact")}>{content.nav.contact}</Link>
         </div>

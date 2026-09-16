@@ -7,7 +7,7 @@ const pageDescriptions = {
     work:
       "Selected wedding films, fashion images, brand stories and photography by Paris-based filmmaker OTTO Vision.",
     weddings:
-      "Cinematic wedding films, elopements and pre-wedding sessions in Paris, France and across Europe.",
+      "Paris wedding videographer creating documentary-led wedding films, elopements and pre-wedding sessions across France and Europe.",
     about:
       "Meet Otto, a Paris-based filmmaker and photographer working across weddings, fashion, brands and events.",
     contact:
@@ -20,7 +20,7 @@ const pageDescriptions = {
     work:
       "Films de mariage, mode, récits de marque et photographie par OTTO Vision, réalisateur basé à Paris.",
     weddings:
-      "Films de mariage cinématographiques, élopements et séances avant mariage à Paris, en France et en Europe.",
+      "Vidéaste mariage à Paris : films documentaires et cinématographiques, élopements et séances avant mariage en France et en Europe.",
     about:
       "Découvrez Otto, réalisateur et photographe basé à Paris, entre mariages, mode, marques et événements.",
     contact:
@@ -33,7 +33,7 @@ const pageTitles = {
   en: {
     home: "OTTO Vision | Paris Filmmaker",
     work: "Selected Work",
-    weddings: "Wedding Films",
+    weddings: "Paris Wedding Videographer",
     about: "About Otto",
     contact: "Start a Project",
     it: "Developer Archive"
@@ -41,7 +41,7 @@ const pageTitles = {
   fr: {
     home: "OTTO Vision | Réalisateur à Paris",
     work: "Projets choisis",
-    weddings: "Films de mariage",
+    weddings: "Vidéaste mariage à Paris",
     about: "À propos d’Otto",
     contact: "Commencer un projet",
     it: "Archives développeur"
@@ -133,9 +133,17 @@ export function createProjectMetadata({ locale = "en", project }) {
   const frenchPath = routeFor("fr", path);
   const canonical = locale === "fr" ? frenchPath : englishPath;
 
+  const title = project.caseStudy
+    ? locale === "fr"
+      ? project.caseStudy.location === "Paris, France"
+        ? `${project.title} | Film de mariage à Paris`
+        : `${project.title} | Film de mariage en France`
+      : `${project.title} | Wedding Film in ${project.caseStudy.location}`
+    : project.title;
+
   return {
     metadataBase,
-    title: project.title,
+    title,
     description: project.description,
     alternates: {
       canonical,
@@ -146,7 +154,7 @@ export function createProjectMetadata({ locale = "en", project }) {
       }
     },
     openGraph: {
-      title: project.title,
+      title,
       description: project.description,
       type: "video.other",
       locale: locale === "fr" ? "fr_FR" : "en_GB",
@@ -157,7 +165,7 @@ export function createProjectMetadata({ locale = "en", project }) {
     },
     twitter: {
       card: "summary_large_image",
-      title: project.title,
+      title,
       description: project.description,
       images: [project.poster]
     }

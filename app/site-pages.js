@@ -300,6 +300,7 @@ export function WorkPage({ locale = "en" }) {
 export function WeddingsPage({ locale = "en" }) {
   const content = getContent(locale);
   const weddings = content.weddings;
+  const weddingProjects = getProjects(locale).filter((project) => project.kind === "wedding");
 
   return (
     <SiteShell locale={locale} headerTheme="overlay">
@@ -340,6 +341,20 @@ export function WeddingsPage({ locale = "en" }) {
                 <span>0{index + 1}</span>
                 <h3>{service.title}</h3>
                 <p>{service.copy}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="wedding-details section-pad">
+        <div className="content-frame">
+          <SectionHeading eyebrow={weddings.detailsKicker} title={weddings.detailsTitle} />
+          <div className="wedding-detail-grid">
+            {weddings.details.map(([title, copy]) => (
+              <article key={title} data-reveal>
+                <h3>{title}</h3>
+                <p>{copy}</p>
               </article>
             ))}
           </div>
@@ -393,6 +408,31 @@ export function WeddingsPage({ locale = "en" }) {
         </div>
       </section>
 
+      <section className="wedding-stories section-pad">
+        <div className="content-frame">
+          <SectionHeading eyebrow={weddings.storiesKicker} title={weddings.storiesTitle} />
+          <div className="wedding-story-grid">
+            {weddingProjects.map((project) => (
+              <article key={project.id} data-reveal>
+                <Link href={routeFor(locale, `/work/${project.id}`)}>
+                  <div className="wedding-story-image">
+                    <Image
+                      src={project.poster}
+                      alt={`${project.title} — ${project.caseStudy.location}`}
+                      fill
+                      sizes="(max-width: 800px) 100vw, 33vw"
+                    />
+                  </div>
+                  <p className="eyebrow eyebrow-gold">{project.caseStudy.location}</p>
+                  <h3>{project.title}</h3>
+                  <span>{weddings.storiesButton} ↗</span>
+                </Link>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="process-section wedding-process section-pad">
         <div className="content-frame">
           <SectionHeading
@@ -408,6 +448,23 @@ export function WeddingsPage({ locale = "en" }) {
               </article>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="wedding-faq section-pad">
+        <div className="content-frame">
+          <SectionHeading eyebrow={weddings.faqKicker} title={weddings.faqTitle} />
+          <div className="wedding-faq-list">
+            {weddings.faq.map(([question, answer]) => (
+              <article key={question} data-reveal>
+                <h3>{question}</h3>
+                <p>{answer}</p>
+              </article>
+            ))}
+          </div>
+          <ArrowLink href={routeFor(locale, "/journal")}>
+            {locale === "fr" ? "Tous les conseils pour préparer votre film" : "More guides to planning your wedding film"}
+          </ArrowLink>
         </div>
       </section>
 
@@ -430,6 +487,7 @@ export function WeddingsPage({ locale = "en" }) {
 export function ProjectPage({ locale = "en", project, nextProject }) {
   const isFrench = locale === "fr";
   const workPath = routeFor(locale, "/work");
+  const isWedding = project.kind === "wedding" && project.caseStudy;
 
   return (
     <>
@@ -454,7 +512,7 @@ export function ProjectPage({ locale = "en", project, nextProject }) {
             </video>
           </div>
 
-          <div className="film-detail-meta content-frame">
+          <div className={`film-detail-meta content-frame ${isWedding ? "film-detail-meta-four" : ""}`}>
             <div>
               <span>{isFrench ? "Format" : "Format"}</span>
               <p>{project.category}</p>
@@ -467,7 +525,45 @@ export function ProjectPage({ locale = "en", project, nextProject }) {
               <span>{isFrench ? "Réalisation" : "Created by"}</span>
               <p>Otto Zhang · OTTO Vision</p>
             </div>
+            {isWedding ? (
+              <div>
+                <span>{isFrench ? "Lieu" : "Location"}</span>
+                <p>{project.caseStudy.location}</p>
+              </div>
+            ) : null}
           </div>
+
+          {isWedding ? (
+            <section className="case-study content-frame">
+              <div className="case-study-intro" data-reveal>
+                <p className="eyebrow eyebrow-gold">
+                  {isFrench ? "Histoire réelle" : "Real wedding story"}
+                </p>
+                <h2>{project.caseStudy.storyTitle}</h2>
+                <p>{project.caseStudy.story}</p>
+              </div>
+              <div className="case-study-grid">
+                <article data-reveal>
+                  <h3>{project.caseStudy.approachTitle}</h3>
+                  <p>{project.caseStudy.approach}</p>
+                </article>
+                <article data-reveal>
+                  <h3>{project.caseStudy.deliveryTitle}</h3>
+                  <p>{project.caseStudy.delivery}</p>
+                </article>
+              </div>
+              <div className="case-study-cta" data-reveal>
+                <h2>
+                  {isFrench
+                    ? "Vous préparez votre mariage à Paris ou en France ?"
+                    : "Planning a wedding in Paris or France?"}
+                </h2>
+                <PrimaryButton href={routeFor(locale, "/contact")}>
+                  {isFrench ? "Vérifier votre date" : "Check your date"}
+                </PrimaryButton>
+              </div>
+            </section>
+          ) : null}
 
           <footer className="film-detail-next content-frame">
             <p className="eyebrow">{isFrench ? "Projet suivant" : "Next project"}</p>

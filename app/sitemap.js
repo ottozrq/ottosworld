@@ -1,4 +1,5 @@
 import { projects, routeFor, siteUrl } from "./content";
+import { guides } from "./journal-content";
 
 export const dynamic = "force-static";
 
@@ -7,6 +8,8 @@ export default function sitemap() {
     "/",
     "/work",
     "/weddings",
+    "/journal",
+    ...guides.map((guide) => `/journal/${guide.slug}`),
     "/about",
     "/contact",
     "/it",
